@@ -1,4 +1,4 @@
-# Littering--management--system 
+Littering Detection & Vehicle Number Plate Recognition System
 Overview
 In many cities, the problem of littering from moving vehicles is growing. Traditional surveillance systems struggle to catch these events in real-time and identify the culprits. This project aims to solve this issue using a computer vision pipeline that performs the following:
 
@@ -15,4 +15,60 @@ License Plate Detection
 OCR for extracting vehicle number
 Cropping and saving evidence images
 Organized storage by date and time
-Real-time camera feed 
+Real-time camera feed analysis
+🛠️ Tech Stack
+Component	Technology
+AI Model	YOLOv8 (Ultralytics)
+OCR	Tesseract OCR
+Backend	Python
+Image Processing	OpenCV
+Database (optional)	SQLite or Firebase
+Deployment	Localhost / Cloud VM
+🚀 Setup Instructions
+1. Clone the Repository
+git clone https://github.com/itsshashankr14/littering-management-system.git
+cd littering-detection
+2. Create Virtual Environment
+python -m venv .venv
+source .venv/bin/activate      # On Linux/Mac
+.venv\Scripts\activate         # On Windows
+3. Install Requirements
+pip install -r requirements.txt
+4. Download YOLOv8 Weights
+Download the pre-trained model weights from Ultralytics and place them in the models/ directory.
+
+models/
+├── vehicle/
+│   └── yolov8s.pt
+├── trash/
+│   └── yolov8s.pt
+5. Run the App
+python main.py
+🧰 How it Works
+Video Feed Input
+
+Either live camera or pre-recorded footage.
+Object Detection
+
+Detects vehicles and litter using YOLOv8 models.
+Littering Check
+
+Identifies if trash is being thrown outside of a detected vehicle's bounding box.
+License Plate Recognition
+
+Localizes the number plate region and extracts text using Tesseract OCR.
+Logging
+
+Stores images and OCR results with timestamp for each littering event.
+📁 Folder Structure
+littering-detection/
+│
+├── models/
+│   ├── vehicle/
+│   └── trash/
+├── static/
+│   └── logs/         # Detected incident screenshots
+├── main.py
+├── utils.py
+├── requirements.txt
+└── README.md
