@@ -1,0 +1,123 @@
+Littering Detection & Vehicle Number Plate Recognition System
+Overview
+In many cities, the problem of littering from moving vehicles is growing. Traditional surveillance systems struggle to catch these events in real-time and identify the culprits. This project aims to solve this issue using a computer vision pipeline that performs the following:
+
+Plastic Waste Detection – A YOLOv8 model trained to detect plastic items such as bottles and wrappers thrown from vehicles.
+Vehicle Detection – Identifies and localizes the vehicle responsible for the action using a separate YOLOv8 model.
+License Plate Detection and OCR – The number plate is detected from the vehicle region, cropped, and passed to an OCR module to extract the alphanumeric registration number.
+Data Logging and Evidence Storage – Cropped images of the plastic waste, vehicle, and number plate are saved along with the recognized text for further verification or legal action.
+Real-time Feed Processing – The system works on a live video stream or recorded footage for continuous monitoring.
+This solution can be used by municipal bodies and smart city projects to automate litter detection, issue fines, and build a cleaner environment.
+Features
+Plastic Waste Detection using YOLOv8
+Vehicle Detection
+License Plate Detection
+OCR for extracting vehicle number
+Cropping and saving evidence images
+Organized storage by date and time
+Real-time camera feed analysis
+🛠️ Tech Stack
+Component	Technology
+AI Model	YOLOv8 (Ultralytics)
+OCR	Tesseract OCR
+Backend	Python
+Image Processing	OpenCV
+Database (optional)	SQLite or Firebase
+Deployment	Localhost / Cloud VM
+🚀 Setup Instructions
+1. Clone the Repository
+git clone https://github.com/itsshashankr14/littering-management-system.git
+cd littering-detection
+2. Create Virtual Environment
+python -m venv .venv
+source .venv/bin/activate      # On Linux/Mac
+.venv\Scripts\activate         # On Windows
+3. Install Requirements
+pip install -r requirements.txt
+4. Download YOLOv8 Weights
+Download the pre-trained model weights from Ultralytics and place them in the models/ directory.
+
+models/
+├── vehicle/
+│   └── yolov8s.pt
+├── trash/
+│   └── yolov8s.pt
+5. Run the App
+python main.py
+🧰 How it Works
+Video Feed Input
+
+Either live camera or pre-recorded footage.
+Object Detection
+
+Detects vehicles and litter using YOLOv8 models.
+Littering Check
+
+Identifies if trash is being thrown outside of a detected vehicle's bounding box.
+License Plate Recognition
+
+Localizes the number plate region and extracts text using Tesseract OCR.
+Logging
+
+Stores images and OCR results with timestamp for each littering event.
+📁 Folder Structure
+littering-detection/
+│
+├── models/
+│   ├── vehicle/
+│   └── trash/
+├── static/
+│   └── logs/         # Detected incident screenshots
+├── main.py
+├── utils.py
+├── requirements.txt
+└── README.md
+Screenshots
+Dashboard Trash and vehicle detection
+
+🔮 Future Enhancements
+GPS tagging for each incident
+Email alerts or SMS notifications
+Integration with city surveillance systems
+Custom-trained models for improved accuracy
+🙌 Contributors
+Shashank Gowda R – Folow on Github
+Mohan – Follow on Github
+📜 License
+MIT License. Feel free to use and improve this project for educational or civic purposes.
+
+🚀 Feel free to contribute, report issues, and improve this project! 🎯
+
+About
+No description, website, or topics provided.
+Resources
+ Readme
+Security policy
+ Security policy
+ Activity
+Stars
+ 0 stars
+Watchers
+ 1 watching
+Forks
+ 0 forks
+Report repository
+Releases
+No releases published
+Packages
+No packages published
+Languages
+Python
+100.0%
+Footer
+© 2025 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+Manage cookies
+Do not share my personal information
